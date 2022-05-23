@@ -21,7 +21,7 @@
 </body>
 <script>
     function temperatureConverter(valNum) {
-        valNum = parseFloat(valNum);
+        let valNum = parseFloat(valNum);
         if ((valNum - 32) == 0) {
             document.getElementById("outputCelsius").innerHTML = ((valNum-32) / 1.8);
         } else {
