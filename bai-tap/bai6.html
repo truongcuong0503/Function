@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let character = prompt("Nhập vào ký tự bất kỳ: ")
+    let num = 0
+    let str = ""
+    function checkCharacter() {
+        let check = true
+        if (character === num) {
+            return check
+        } else if (character === str) {
+            check = false
+        } else {
+            check = false
+        }
+        return check
+    }
+    let result = checkCharacter()
+    alert(result)
+</script>
+</html>

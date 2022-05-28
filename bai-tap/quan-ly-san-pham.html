@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td {
+            height: 40px;
+        }
+
+        td .edit, td .delete {
+            background-color: rgb(44, 185, 44);
+            border-radius: 5px;
+            border: 1px solid white;
+            color: white;
+            width: 70px;
+            height: 30px;
+            text-align: center;
+        }
+        #add {
+            background-color: rgb(44, 185, 44);
+            border-radius: 5px;
+            border: 1px solid white;
+            color: white;
+            width: 70px;
+            height: 30px;
+        }
+        .nameproduct {
+            width: 300px;
+        }
+        #red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h4>Add New Product</h4>
+    <label>
+        <input type="text" id="product" placeholder="New Product">
+        <button id="add" onclick="addAndFix()">Add</button>
+    </label>
+    <h4>Display All Product</h4>
+    <div id="data"></div>
+</body>
+<script>
+    let arr = ["Sony Xperia", "Samsung Galaxy", "Nokia 6", "Xiaomi Redmi Note 4", "Apple iPhone 6S"]
+    function showForm() {
+        let data = "<table>"        
+        data += "<tr><td><b>Product Name</b></td><td></td><td></td><td><b id='red'>"+ arr.length +" products</b></td></tr>"
+        for (let i = 0; i < arr.length; i++) {
+                data += "<tr>"
+                data += "<td class='nameproduct'>" + arr[i] + "</td>"
+                data += "<td><button class='edit' onclick='editProduct("+i+")'>Edit</button></td>" 
+                data += "<td><button class='delete' onclick='deleteProduct("+i+")'>Delete</button></td> "
+                data += "</tr>"
+        }
+        data += "<table>"
+        document.getElementById("data").innerHTML = data
+    }
+
+    function addAndFix() {
+        let newproduct = document.getElementById("product").value
+        let str = ""
+        if (newproduct == str) {
+            alert("Bạn chưa cập nhật tên sản phẩm mới!!!")
+        } else {
+            arr.push(newproduct)
+            document.getElementById("product").value = ""
+        }
+        
+        showForm()
+    }
+
+    function editProduct(index) {
+        let updateProduct = prompt("Cập nhật sản phẩm có tên " + arr[index] + " :")
+        let str = ""
+        do {
+            if (updateProduct == str) {
+                alert("Bạn chưa cập nhật tên sản phẩm!!");
+            } else {
+                confirm("Bạn muốn lưu thay đổi??")
+                arr[index] = updateProduct
+                break
+            }
+            updateProduct = prompt("Cập nhật sản phẩm có tên " + arr[index] + " :")
+        } while (updateProduct) {
+            arr[index] = updateProduct
+        }
+        showForm()
+    }
+
+    function deleteProduct(index) {
+        if (confirm("Bạn có chắc chắn muốn xóa sản phẩm có tên: " +  arr[index] + " ?")) {
+            arr.splice(index, 1)
+        }
+        showForm()
+    }
+    showForm()
+</script>
+</html>

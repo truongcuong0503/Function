@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let arr1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"]
+    let arr2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"]
+    function showNamesOfStars(arr) {
+        for (i = 0; i < arr1.length; i++) {
+            if (arr == arr1[i]) {
+                for (j = i; j < arr2.length; j++) {
+                    alert("Ngôi sao bạn tìm là: " + arr2[j])
+                    break;
+                } 
+            } 
+        } 
+        
+    }
+    let star = showNamesOfStars(prompt("Nhập vào tên ngôi sao: "))
+</script>
+</html>
